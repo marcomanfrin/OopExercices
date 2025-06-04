@@ -1,329 +1,341 @@
 # Object Oriented Programming - Practice
 
-Questi esercizi supportano l'apprendimento e la preparazione all'esame finale. Alcuni sono progettati per approfondire la comprensione oltre il materiale base.
+These exercises support learning and final exam preparation. Some are designed to deepen understanding beyond the basic material.
 
-## 📚 Indice dei Moduli
+## 📚 Module Index
 
-- [M1 - Esercizi base](#m1)
-- [M2 & M3 - Classi, ereditarietà, interfacce, pattern](#m2--m3)
-- [M4 - Eccezioni, logging, chain of responsibility](#m4)
+- [M1 - Basic exercises](#m1)
+- [M2 & M3 - Classes, inheritance, interfaces, patterns](#m2--m3)
+- [M4 - Exceptions, logging, chain of responsibility](#m4)
 - [M5 - Collections, Stream API, Lambda](#m5)
-- [M6 - File I/O, serializzazione, Memento](#m6)
+- [M6 - File I/O, serialization, Memento](#m6)
 - [M7 - Threading, Executor, Deadlock, Observer](#m7)
 
 ## M1
-1. Scrivi un programma che dichiari variabili di tipo diverso (`int`, `double`, `String`, `boolean`) e stampi i valori. Prova la conversione tra tipi.
-2. Prendi due numeri `float` e stampa somma, differenza, prodotto, e quoziente (formattati a 2 decimali).
-3. Scrivi un metodo che prende tre numeri e determina il più grande con `if-else`.
-4. Scrivi un programma che prende i coefficienti `a`, `b`, `c` e calcola le radici reali di un’equazione quadratica. Se non esistono radici reali, stampa un messaggio.
-5. Scrivi un programma che verifica se un numero intero è primo.
-6. Metodo `perimeterRectangle(double length, double width)` che restituisce il perimetro di un rettangolo.
-7. Metodo `isOdd(int num)` che restituisce `1` se il numero è dispari, `0` altrimenti.
-8. Metodo `triangleArea(double a, double b, double c)` che calcola l’area usando la formula di Erone.
-9. Data una tripletta di stringhe, stampa la concatenazione in ordine normale e inverso.
-10. Metodo statico che conta e stampa quante parole ci sono in una frase.
-11. Metodo che estrae e stampa una sottostringa da un indice dato.
-12. Metodo che verifica se una stringa è palindroma (ignorando spazi e maiuscole).
-13. Metodo che conta le occorrenze di un carattere in una stringa.
-14. Metodo che conta quante vocali ci sono in una stringa (case-insensitive).
-15. Metodo che trova l’indice della prima occorrenza di un carattere o stampa un messaggio se non presente.
-16. Metodo che calcola e stampa il fattoriale di un numero.
-17. Metodo che stampa i primi `n` numeri della serie di Fibonacci.
-18. Metodo che calcola e stampa il MCD di due numeri.
-19. Metodo che stampa la tabellina di `n`.
-20. Metodo che stampa un pattern numerico con `n` righe.
-21. Metodo che restituisce il `n`esimo numero primo.
-22. Metodo che trova la somma massima di una sottosequenza contigua in un array.
-23. Metodo che ruota un array verso destra di `k` posizioni.
-24. Metodo che controlla se una stringa di parentesi `()[]{}` è bilanciata.
+### Basic exercises
+
+1. Write a program that declares variables of different types (`int`, `double`, `String`, `boolean`) and prints their values. Try type conversion.
+2. Take two `float` numbers and print their sum, difference, product, and quotient (formatted to 2 decimal places).
+3. Write a method that takes three numbers and determines the largest using `if-else`.
+4. Write a program that takes coefficients `a`, `b`, `c` and calculates the real roots of a quadratic equation. If no real roots exist, print a message.
+5. Write a program that checks if an integer is prime.
+6. Method `perimeterRectangle(double length, double width)` that returns the perimeter of a rectangle.
+7. Method `isOdd(int num)` that returns `1` if the number is odd, `0` otherwise.
+8. Method `triangleArea(double a, double b, double c)` that calculates the area using Heron’s formula.
+9. Given three strings, print their concatenation in normal and reverse order.
+10. Static method that counts and prints how many words are in a sentence.
+11. Method that extracts and prints a substring from a given index.
+12. Method that checks if a string is a palindrome (ignoring spaces and case).
+13. Method that counts the occurrences of a character in a string.
+14. Method that counts how many vowels are in a string (case-insensitive).
+15. Method that finds the index of the first occurrence of a character or prints a message if not present.
+16. Method that calculates and prints the factorial of a number.
+17. Method that prints the first `n` numbers in the Fibonacci series.
+18. Method that calculates and prints the GCD of two numbers.
+19. Method that prints the multiplication table of `n`.
+20. Method that prints a numeric pattern with `n` rows.
+21. Method that returns the `n`th prime number.
+22. Method that finds the maximum sum of a contiguous subarray.
+23. Method that rotates an array to the right by `k` positions.
+24. Method that checks if a string of brackets `()[]{}` is balanced.
 
 ## M2 & M3
-25. **Classe `Car`**
-    - Attributi: `brand`, `model`, `year`
-    - Due costruttori:
-        - Uno che accetta solo `brand` e `model`, imposta `year` corrente
-        - Uno che inizializza tutti gli attributi
-    - Metodo `toString()`
-    - Istanzia due oggetti e stampa i dettagli
-26. **Classe `BankAccount`**
-    - Attributo privato `balance`
-    - Metodi: `deposit()`, `withdraw()`, `checkBalance()`
-    - Impedisci prelievi superiori al saldo
-27. **Classe `MathOperations`**
-    - Due metodi `sum()` sovraccarichi: uno per `int`, uno per `double`
-28. **Classe `Counter`**
-    - Variabile statica `count`
-    - Incrementata a ogni istanziazione
-    - Metodo per recuperare `count`
-29. **Classe `Circle`**
-    - Attributo `radius`
-    - Metodi: `calculateArea()`, `calculatePerimeter()`
-30. **Classe `Student`**
-    - Info studente e array di voti
-    - Metodo per media e verifica superamento (`≥ 50`)
-31. **Classe `Person` e sottoclasse `Student`**
+### Classes, inheritance, interfaces, pattern
+
+1. **Class `Car`**
+    - Attributes: `brand`, `model`, `year`
+    - Two constructors:
+        - One that accepts `brand` and `model`, sets `year` to current
+        - One that initializes all attributes
+    - Method `toString()`
+    - Instantiate two objects and print their details
+2. **Class `BankAccount`**
+    - Private attribute `balance`
+    - Methods: `deposit()`, `withdraw()`, `checkBalance()`
+    - Prevent withdrawals exceeding the balance
+3. **Class `MathOperations`**
+    - Two overloaded `sum()` methods: one for `int`, one for `double`
+4. **Class `Counter`**
+    - Static variable `count`
+    - Incremented on each instantiation
+    - Method to retrieve `count`
+5. **Class `Circle`**
+    - Attribute `radius`
+    - Methods: `calculateArea()`, `calculatePerimeter()`
+6. **Class `Student`**
+    - Student info and array of grades
+    - Method to compute average and check pass (`≥ 50`)
+7. **Class `Person` and subclass `Student`**
     - `Person`: `name`, `age`
-    - `Student`: `studentId`, metodo per stampare tutti i dettagli
-32. **Classe astratta `Shape`**
-    - Metodo astratto `calculateArea()`
-    - Sottoclassi: `Rectangle`, `Circle` con implementazione area
-33. **Interfaccia `Playable`**
-    - Metodo `play()`
-    - Classi `Guitar` e `VideoGame` che implementano `Playable`
-34. **Interfaccia e gerarchia dispositivi**
-    - `Chargeable` con `charge()`
-    - `Device` astratta con `connectToWifi()`
-    - `Smartphone` e `Laptop`: estendono `Device`, implementano `Chargeable`
-    - `ElectricCar`: implementa solo `Chargeable`
-    - Crea array di `Chargeable`, chiama `charge()`
-35. **Struttura veicoli**
-    - Interfaccia e classe astratta appropriate
-    - Metodo comune `startEngine()`
-    - Solo alcuni: `loadCargo()`, altri `move()`
-    - Implementa `Car`, `Truck`, `Bicycle`
-36. **Conservazione della fauna**
-    - Classe astratta `Animal`: `eat()`, `sleep()`
-    - Interfacce: `Flyable`, `Swimmable`
-    - Classi: `Lion`, `Penguin`, `Fish`, `Eagle`, ecc.
-37. **Classe `WildlifeConservationSystem`**
-    - Array di `Animal`
-    - Metodo statico `printAnimalDetails(Animal animal)`
-    - Metodi sovraccaricati `performAction(Flyable)` e `performAction(Swimmable)`
-38. **Sistema SIM Card**
-    - Classe `Call`: durata e numero chiamato
-    - Classe `SIM`: numero, credito, ultime 5 chiamate (array fisso)
-    - Aggiungi almeno 6 chiamate, stampa i dettagli
-39. **Sistema E-commerce**
-    - `Product`: codice, descrizione, prezzo, quantità
-    - `Customer`: ID, nome, email, data registrazione
-    - `Cart`: cliente associato, lista prodotti, costo totale
-    - Metodi: aggiunta/rimozione, controllo stock, stampa dettagli
-40. **Builder Pattern per `Car`**
-    - Classe `Car`: `brand`, `model`, `engine`, `features`
-    - Classe `CarBuilder`: metodi concatenati
-    - Usa builder per creare configurazioni diverse
-41. **Factory Pattern per documenti**
-    - Classe astratta `Document`: metodo `generate()`
-    - Sottoclassi: `PDFDocument`, `WordDocument`, `TextDocument`
-    - `DocumentFactory` restituisce istanza giusta in base al tipo
-42. **Proxy Pattern per immagini**
-    - Interfaccia `Image` con `display()`
-    - `RealImage`: carica e mostra
-    - `ProxyImage`: carica solo alla prima chiamata `display()`
-43. **Facade per Home Theater**
-    - Componenti: `DVDPlayer`, `Projector`, `SoundSystem`, `Lights`
-    - Classe `HomeTheaterFacade`: metodi `startMovie()`, `endMovie()`
-44. **Gerarchia dispositivi/remoti**
-    - Dispositivi: `TV`, `Radio`
-    - Remoti: `BasicRemote`, `AdvancedRemote`
-    - Tightly coupled: es. `TVBasicRemote`, `TVAdvancedRemote`
-45. **Bridge Pattern per remoti e dispositivi**
-    - `RemoteControl` (astrazione): `powerOn()`, `powerOff()`
-    - `Device` (interfaccia): `TV`, `Radio`
-    - `BasicRemote`, `AdvancedRemote` indipendenti dal tipo dispositivo
+    - `Student`: `studentId`, method to print all details
+8. **Abstract class `Shape`**
+    - Abstract method `calculateArea()`
+    - Subclasses: `Rectangle`, `Circle` with area implementation
+9. **Interface `Playable`**
+    - Method `play()`
+    - Classes `Guitar` and `VideoGame` implement `Playable`
+10. **Interface and device hierarchy**
+    - `Chargeable` with `charge()`
+    - Abstract `Device` with `connectToWifi()`
+    - `Smartphone` and `Laptop`: extend `Device`, implement `Chargeable`
+    - `ElectricCar`: only implements `Chargeable`
+    - Create an array of `Chargeable`, call `charge()`
+11. **Vehicle structure**
+    - Appropriate interface and abstract class
+    - Common method `startEngine()`
+    - Only some: `loadCargo()`, others `move()`
+    - Implement `Car`, `Truck`, `Bicycle`
+12. **Wildlife conservation**
+    - Abstract class `Animal`: `eat()`, `sleep()`
+    - Interfaces: `Flyable`, `Swimmable`
+    - Classes: `Lion`, `Penguin`, `Fish`, `Eagle`, etc.
+13. **Class `WildlifeConservationSystem`**
+    - Array of `Animal`
+    - Static method `printAnimalDetails(Animal animal)`
+    - Overloaded methods `performAction(Flyable)` and `performAction(Swimmable)`
+14. **SIM Card system**
+    - Class `Call`: duration and called number
+    - Class `SIM`: number, credit, last 5 calls (fixed array)
+    - Add at least 6 calls, print details
+15. **E-commerce system**
+    - `Product`: code, description, price, quantity
+    - `Customer`: ID, name, email, registration date
+    - `Cart`: associated customer, list of products, total cost
+    - Methods: add/remove, stock check, print details
+16. **Builder Pattern for `Car`**
+    - `Car`: `brand`, `model`, `engine`, `features`
+    - `CarBuilder` class: chained methods
+    - Use builder to create different configurations
+17. **Factory Pattern for documents**
+    - Abstract class `Document`: method `generate()`
+    - Subclasses: `PDFDocument`, `WordDocument`, `TextDocument`
+    - `DocumentFactory` returns correct instance by type
+18. **Proxy Pattern for images**
+    - Interface `Image` with `display()`
+    - `RealImage`: loads and shows
+    - `ProxyImage`: loads only on first `display()`
+19. **Home Theater Facade**
+    - Components: `DVDPlayer`, `Projector`, `SoundSystem`, `Lights`
+    - `HomeTheaterFacade`: methods `startMovie()`, `endMovie()`
+20. **Device/Remote hierarchy**
+    - Devices: `TV`, `Radio`
+    - Remotes: `BasicRemote`, `AdvancedRemote`
+    - Tightly coupled: e.g., `TVBasicRemote`, `TVAdvancedRemote`
+21. **Bridge Pattern for remotes and devices**
+    - `RemoteControl` (abstraction): `powerOn()`, `powerOff()`
+    - `Device` (interface): `TV`, `Radio`
+    - `BasicRemote`, `AdvancedRemote` independent of device type
 
 ## M4
-46. **Gestione divisione e input**
-    - Metodo che legge un intero dall’utente e divide 100 per quel numero
-    - Gestisce `ArithmeticException` e `InputMismatchException` con messaggi amichevoli
-47. **Radice quadrata e logging**
-    - Calcola la radice quadrata di un numero
-    - Usa `Logger` per loggare input, risultati, e input non validi (es. numeri negativi)
-    - Configura il logger per scrivere su file
-48. **Parsing sicuro di numeri**
-    - Metodo che prende una lista di stringhe e prova a convertirle in numeri
-    - Salta e logga quelle non parsabili
-49. **Sistema di login con tentativi**
-    - Simula un login
-    - Se username/password errati, solleva un’eccezione personalizzata
-    - Blocca dopo 3 tentativi falliti
-50. **Propagazione delle eccezioni**
-    - Tre metodi: `readFile()`, `processData()`, `main()`
-    - `readFile()` lancia `IOException`
-    - Non catturare fino a `main()` per mostrare la propagazione
-51. **Custom Exception Wrapper**
-    - Metodo in libreria che chiama codice di terze parti con potenziali eccezioni unchecked
-    - Cattura internamente, rilancia una `LibraryException` personalizzata
-52. **Chain of Responsibility Logger**
-    - Diverse classi logger: `ConsoleLogger`, `FileLogger`, `EmailLogger`
-    - Ogni logger gestisce un solo tipo di log (INFO, WARNING, ERROR)
-    - Se il livello non è gestito, passa al logger successivo
-53. **Enum e loggers**
-    - Definisci un `enum LogLevel { INFO, WARNING, ERROR }`
-    - Classe astratta `Logger` con:
+### Exceptions, logging, chain of responsibility
+
+1. **Division and input handling**
+    - Method that reads an integer and divides 100 by it
+    - Handles `ArithmeticException` and `InputMismatchException` with friendly messages
+2. **Square root and logging**
+    - Calculates square root of a number
+    - Uses `Logger` to log input, result, invalid inputs (e.g., negative numbers)
+    - Configure logger to write to file
+3. **Safe number parsing**
+    - Method takes a list of strings and tries converting to numbers
+    - Skips and logs unparseable ones
+4. **Login system with attempts**
+    - Simulate login
+    - If username/password incorrect, throw custom exception
+    - Block after 3 failed attempts
+5. **Exception propagation**
+    - Three methods: `readFile()`, `processData()`, `main()`
+    - `readFile()` throws `IOException`
+    - Don’t catch until `main()` to show propagation
+6. **Custom Exception Wrapper**
+    - Library method calls third-party code that may throw unchecked exceptions
+    - Internally catches and rethrows as custom `LibraryException`
+7. **Chain of Responsibility Logger**
+    - Loggers: `ConsoleLogger`, `FileLogger`, `EmailLogger`
+    - Each handles one log level (INFO, WARNING, ERROR)
+    - Passes to next logger if level unhandled
+8. **Enum and loggers**
+    - Define `enum LogLevel { INFO, WARNING, ERROR }`
+    - Abstract class `Logger` with:
         - `setNext(Logger)`
         - `log(LogLevel, String message)`
-54. **Implementazioni concrete dei logger**
-    - `ConsoleLogger`: stampa su console se `INFO`
-    - `FileLogger`: simula scrittura su file per `WARNING`
-    - `EmailLogger`: simula invio email per `ERROR`
-55. **Catch generico e sicurezza**
-    - Classe che cattura tutte le eccezioni con `catch(Exception e)`
-    - Logga i messaggi
-    - Spiega perché è cattiva pratica (es. Log4Shell) e i rischi di loggare input non fidati
+9. **Concrete logger implementations**
+    - `ConsoleLogger`: prints to console if `INFO`
+    - `FileLogger`: simulates writing to file for `WARNING`
+    - `EmailLogger`: simulates email for `ERROR`
+10. **Generic catch and safety**
+    - Class that catches all exceptions with `catch(Exception e)`
+    - Logs messages
+    - Explain why it’s bad practice (e.g., Log4Shell), and risks of logging untrusted input
 
 ## M5
-56. **Liste di giocatori**
-    - Memorizza nomi dei giocatori in una `List`
-    - Dimostra la differenza tra `ArrayList` e `LinkedList`
-    - Spiega impatto sulle performance di inserimenti/cancellazioni
-57. **Classe generica `Box<T>`**
-    - Metodi: `getContent()`, `setContent()`
-    - Testa con `Integer`, `String`, e una classe personalizzata `Player`
-58. **Lobby multiplayer**
-    - Usa `List<Player>` per una stanza di gioco
-    - Usa `Queue<Player>` per la coda matchmaking
-    - Implementa: unione/uscita dalla stanza, generazione sessioni
-    - Spiega perché `Queue` è migliore per il matchmaking
-59. **Tracciamento achievements**
-    - `Set<String>` per achievements unici
-    - `Map<String, Integer>` per statistiche tipo "mostri sconfitti"
-    - Aggiungi metodi per aggiornare statistiche e sbloccare achievements
-    - Estendi a più giocatori usando `Map<Player, PlayerData>`
-60. **GameEventLog e Iterator Pattern**
-    - Collezione personalizzata con eventi in-game e timestamp
-    - Classe interna `RecentEventIterator` che restituisce solo eventi ultimi 5 minuti
-    - Spiega vantaggi dell'`Iterator Pattern` e come riusarlo per altri filtri
-61. **Classe `Character` ordinabile**
-    - Attributi: `name`, `level`, `XP`
-    - Implementa `Comparable<Character>` per ordinamento naturale su `level`
-    - Crea due `Comparator`: uno per `XP` decrescente, uno per `name` alfabetico
-    - Confronta `Comparable` vs `Comparator` e quando usare ciascuno
-62. **Lista di oggetti `Item`**
-    - Ogni `Item` ha `name` e `price`
-    - Stampa usando `forEach()` e lambda
-    - Usa `removeIf()` per rimuovere item sotto una certa soglia
-    - Calcola media dei prezzi usando `Stream`
-    - Confronta con versione usando `for-loop` tradizionale
-63. **Stream su `Transaction`**
-    - Filtra transazioni sopra una certa soglia
-    - Raggruppa per utente e calcola spesa totale
-    - Trova i 3 utenti con maggiore spesa
-    - Ordina per data
-    - Spiega trasformazioni dei dati con Stream vs loop
-64. **Stream su `Product`**
-    - Raggruppa prodotti per `category`
-    - Trova il più venduto per ogni categoria
-    - Output: `Map<String, Product>`, chiave è `category`
-65. **Even numbers trasformati (due versioni)**
-    - Lista di interi
-    - Filtra pari
-    - Moltiplica ×3
-    - Colleziona in nuova lista
-    - Scrivi in forma sia `for-loop` sia `Stream`
-    - Confronta chiarezza e leggibilità
-66. **Libri in mappa filtrata**
-    - Lista di `Book(title, author, yearPublished, price)`
-    - Filtra libri dopo il 2010
-    - Colleziona in `Map<String, Double>` con `title` come chiave
-    - Gestione titoli duplicati: tieni il più costoso
-67. **Optional e Stream**
-    - Lista di `Order`, ogni `Order` ha `Optional<Customer>`, e `Customer` ha `Optional<String> email`
-    - Estrai solo email presenti
-    - Colleziona in `List<String>`
+### Collections, Stream API, Lambda
+
+1. **Player list**
+    - Store player names in a `List`
+    - Show difference between `ArrayList` and `LinkedList`
+    - Explain performance impact for insertions/removals
+2. **Generic class `Box<T>`**
+    - Methods: `getContent()`, `setContent()`
+    - Test with `Integer`, `String`, and a custom `Player` class
+3. **Multiplayer lobby**
+    - Use `List<Player>` for game room
+    - Use `Queue<Player>` for matchmaking queue
+    - Implement: join/leave room, generate sessions
+    - Explain why `Queue` is better for matchmaking
+4. **Achievement tracking**
+    - `Set<String>` for unique achievements
+    - `Map<String, Integer>` for stats like "monsters defeated"
+    - Add methods to update stats and unlock achievements
+    - Extend to multiple players using `Map<Player, PlayerData>`
+5. **GameEventLog and Iterator Pattern**
+    - Custom collection with game events and timestamps
+    - Inner class `RecentEventIterator` returns only events from last 5 minutes
+    - Explain `Iterator Pattern` benefits and reuse for other filters
+6. **Class `Character` with ordering**
+    - Attributes: `name`, `level`, `XP`
+    - Implements `Comparable<Character>` for natural ordering by `level`
+    - Create two `Comparator`s: one for descending `XP`, one for alphabetical `name`
+    - Compare `Comparable` vs `Comparator` and when to use each
+7. **List of `Item` objects**
+    - Each `Item` has `name` and `price`
+    - Print using `forEach()` and lambda
+    - Use `removeIf()` to remove items below a threshold
+    - Compute average price with `Stream`
+    - Compare with traditional `for-loop` version
+8. **Stream on `Transaction`**
+    - Filter transactions above a threshold
+    - Group by user and compute total spend
+    - Find top 3 spenders
+    - Sort by date
+    - Explain data transformations with Stream vs loops
+9. **Stream on `Product`**
+    - Group products by `category`
+    - Find the best-selling product for each category
+    - Output: `Map<String, Product>`, key is `category`
+10. **Even numbers transformation (two versions)**
+    - List of integers
+    - Filter evens
+    - Multiply ×3
+    - Collect in new list
+    - Write in both `for-loop` and `Stream` form
+    - Compare clarity and readability
+11. **Books in filtered map**
+    - List of `Book(title, author, yearPublished, price)`
+    - Filter books after 2010
+    - Collect in `Map<String, Double>` with `title` as key
+    - Handle duplicate titles: keep the most expensive
+12. **Optional and Stream**
+    - List of `Order`, each has `Optional<Customer>`, and `Customer` has `Optional<String> email`
+    - Extract only present emails
+    - Collect into `List<String>`
 
 ## M6
-68. **Lettura file `.txt`**
-    - Usa `BufferedReader` per leggere e stampare ogni riga
-    - Gestisci le eccezioni e chiudi correttamente le risorse
-69. **Scrittura file con messaggi**
-    - Metodo che riceve una lista di `String`
-    - Scrive ogni riga nel file con `BufferedWriter` in modalità append
-70. **Conteggio parole da file**
-    - Leggi un `.txt`
-    - Conta quante volte appare ogni parola (ignorando case e punteggiatura)
-    - Salva in `Map<String, Integer>`
-71. **Copia file binari**
-    - Copia file `.jpg` (o simili) con `FileInputStream` e `FileOutputStream`
-    - Usa un buffer per migliorare le performance
-72. **Scrittura e lettura dati binari**
-    - Usa `DataOutputStream` per scrivere `int`, `double`, `String`
-    - Leggi con `DataInputStream` e stampa i valori
-73. **Serializzazione oggetti**
-    - Classe `User(name, email, age)` implementa `Serializable`
-    - Scrivi un oggetto su file e leggilo per verificarne l’integrità
-74. **Serializzazione lista di oggetti**
-    - Lista di `Book` serializzata su file
-    - Deserializzala e stampa il contenuto
-75. **Gestione `serialVersionUID`**
-    - Aggiungi un nuovo campo a `User`
-    - Definisci `serialVersionUID`
-    - Verifica la compatibilità con una versione precedente
-76. **Stampa file `.txt` in directory**
-    - Usa `Files.list()` e `Stream` per stampare tutti i `.txt` in una directory
-    - Ordina alfabeticamente
-77. **Lettura file con `FileChannel`**
-    - Usa `FileChannel` e `ByteBuffer` per leggere file in memoria e stamparlo
-    - Evita stream legacy
-78. **Filtraggio righe con Stream**
-    - Usa `Files.lines()`:
-        - Filtra righe con parola chiave
-        - Trasforma in maiuscolo
-        - Salva in un nuovo file
-79. **Input utente con controlli**
-    - Prende input dell’utente e lo scrive su file
-    - Verifica che:
-        - Non contenga parole proibite
-        - Sia pulito da spazi superflui
-        - Sia valido, altrimenti stampa errore
-80. **Text editor con undo (Memento Pattern)**
-    - `EditorState`: rappresenta il contenuto corrente (memento)
-    - `TextEditor`: modifica e salva/ripristina stato (originator)
-    - `History`: gestisce versioni precedenti con uno stack (caretaker)
-    - Implementa `undo()` per tornare allo stato precedente
-81. **CLI per log filtering**
-    - App carica un grande file di log
-    - Permette filtri per:
-        - Intervallo di date
-        - Livello di log (`INFO`, `WARN`, `ERROR`)
-        - Sottostringa
-    - Usa `Stream<String>` da `Files.lines()` per elaborazione efficiente
+### File I/O, serialization, Memento
+
+1. **Read `.txt` file**
+    - Use `BufferedReader` to read and print each line
+    - Handle exceptions and close resources properly
+2. **Write file with messages**
+    - Method receives a list of `String`
+    - Writes each line using `BufferedWriter` in append mode
+3. **Word count from file**
+    - Read a `.txt` file
+    - Count how often each word appears (ignore case and punctuation)
+    - Save in `Map<String, Integer>`
+4. **Copy binary files**
+    - Copy `.jpg` or similar with `FileInputStream` and `FileOutputStream`
+    - Use buffer for performance
+5. **Write and read binary data**
+    - Use `DataOutputStream` to write `int`, `double`, `String`
+    - Read with `DataInputStream` and print values
+6. **Object serialization**
+    - `User(name, email, age)` implements `Serializable`
+    - Write an object to file and read to verify integrity
+7. **Serialization of object list**
+    - Serialize a list of `Book` objects to file
+    - Deserialize and print contents
+8. **Handling `serialVersionUID`**
+    - Add a new field to `User`
+    - Define `serialVersionUID`
+    - Verify compatibility with an older version
+9. **Print `.txt` files in directory**
+    - Use `Files.list()` and `Stream` to print all `.txt` files in a directory
+    - Sort alphabetically
+10. **Read file with `FileChannel`**
+    - Use `FileChannel` and `ByteBuffer` to read file to memory and print it
+    - Avoid legacy streams
+11. **Filter lines with Stream**
+    - Use `Files.lines()`:
+        - Filter lines with a keyword
+        - Convert to uppercase
+        - Save in new file
+12. **User input with validation**
+    - Takes user input and writes to file
+    - Verifies:
+        - No forbidden words
+        - Cleans extra spaces
+        - Is valid, else prints error
+13. **Text editor with undo (Memento Pattern)**
+    - `EditorState`: represents current content (memento)
+    - `TextEditor`: modifies and saves/restores state (originator)
+    - `History`: manages previous versions using a stack (caretaker)
+    - Implement `undo()` to return to previous state
+14. **CLI for log filtering**
+    - App loads a large log file
+    - Allows filters for:
+        - Date range
+        - Log level (`INFO`, `WARN`, `ERROR`)
+        - Substring
+    - Use `Stream<String>` from `Files.lines()` for efficient processing
 
 ## M7
-82. **Thread con `NumberPrinter`**
-    - Classe `NumberPrinter` estende `Thread`
-    - Ogni thread stampa da 1 a 10 con ritardo di 500ms
-    - Avvia due istanze e osserva l’esecuzione parallela
-    - Spiega cosa cambia se si chiama `run()` invece di `start()`
-83. **Download file simulato**
-    - Classe `FileDownloader` implementa `Runnable`
-    - Simula download stampando avanzamento e dormendo
-    - Avvia più thread con nomi file diversi
-84. **Esecuzione con `ExecutorService`**
-    - Crea 5 `Callable` o `Runnable`
-    - Usali con un thread pool fisso da 2 thread
-    - Stampa quale thread esegue ogni task
-    - Chiudi l’executor in modo ordinato
-85. **Contatore sincronizzato**
-    - Classe `Counter` con metodo `increment()`
-    - 100 thread che lo invocano 1000 volte
-    - Usa `synchronized` per garantire correttezza
-    - Confronta il risultato rimuovendo `synchronized`
-86. **Produttore-Consumatore**
-    - Produttore aggiunge oggetti ogni secondo
-    - Consumatore li rimuove se presenti
-    - Usa `wait()` e `notify()` per la sincronizzazione
-    - Logga le interazioni
-87. **Simulazione deadlock**
-    - Due risorse: `Printer` e `Scanner`
-    - Due thread che bloccano le risorse in ordine inverso
-    - Mostra come si crea un deadlock
-    - Previeni con timeout o ordine di acquisizione dei lock
-88. **Observer pattern con azioni su stock**
-    - `Stock` è il soggetto osservato
-    - Osservatori: `EmailAlert`, `MobileApp`
-    - Notifica aggiornamenti prezzo a tutti gli osservatori
-    - Dimostra registrazione, deregistrazione e notifica
-89. **Singleton `AppConfig`**
-    - Classe Singleton thread-safe che carica impostazioni
-    - Usa lazy initialization con: `synchronized`, static holder o `volatile`
-    - Verifica comportamento da thread multipli
-90. **Chatroom con Observer**
-    - `ChatRoom`: soggetto che gestisce utenti iscritti
-    - Metodo `postMessage(String)` notifica tutti
-    - Utenti (`User`) implementano `receive(String message)`
-    - Dimostrazione:
-        - Crea 3 utenti: `UserA`, `UserB`, `UserC`
-        - Posta messaggio "Welcome"
-        - Disiscrivi `UserB`
-        - Posta "UserB has left" e mostra che solo `UserA` e `UserC` ricevono il messaggio
+### Threading, Executor, Deadlock, Observer
+
+1. **Thread with `NumberPrinter`**
+    - Class `NumberPrinter` extends `Thread`
+    - Each thread prints from 1 to 10 with 500ms delay
+    - Start two instances and observe parallel execution
+    - Explain difference between calling `run()` vs `start()`
+2. **Simulated file download**
+    - Class `FileDownloader` implements `Runnable`
+    - Simulates download by printing progress and sleeping
+    - Start multiple threads with different filenames
+3. **Execution with `ExecutorService`**
+    - Create 5 `Callable` or `Runnable`
+    - Use with fixed thread pool of 2 threads
+    - Print which thread runs each task
+    - Shutdown executor properly
+4. **Synchronized counter**
+    - Class `Counter` with `increment()` method
+    - 100 threads call it 1000 times
+    - Use `synchronized` to ensure correctness
+    - Compare result without `synchronized`
+5. **Producer-Consumer**
+    - Producer adds objects every second
+    - Consumer removes if present
+    - Use `wait()` and `notify()` for synchronization
+    - Log interactions
+6. **Deadlock simulation**
+    - Two resources: `Printer` and `Scanner`
+    - Two threads lock resources in opposite order
+    - Show how deadlock occurs
+    - Prevent with timeout or lock ordering
+7. **Observer pattern with stock actions**
+    - `Stock` is the observed subject
+    - Observers: `EmailAlert`, `MobileApp`
+    - Notify all observers on price change
+    - Demonstrate registration, deregistration, and notification
+8. **Singleton `AppConfig`**
+    - Thread-safe Singleton class that loads settings
+    - Use lazy initialization with: `synchronized`, static holder, or `volatile`
+    - Verify behavior from multiple threads
+9. **Chatroom with Observer**
+    - `ChatRoom`: subject managing subscribed users
+    - Method `postMessage(String)` notifies all
+    - Users (`User`) implement `receive(String message)`
+    - Demonstration:
+        - Create 3 users: `UserA`, `UserB`, `UserC`
+        - Post message "Welcome"
+        - Unsubscribe `UserB`
+        - Post "UserB has left" and show only `UserA` and `UserC` receive it
