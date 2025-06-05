@@ -1,4 +1,5 @@
-public class m1 {
+package source;
+public class M1 {
 
     public static void main(String[] args) {
         // 1. Type declarations and conversion
@@ -6,80 +7,104 @@ public class m1 {
         double d = i; // implicit conversion
         String s = "Hello";
         boolean b = true;
+        System.out.println("ex 1:");
         System.out.println("int: " + i + ", double: " + d + ", String: " + s + ", boolean: " + b);
 
         // 2. Float operations
         float f1 = 5.5f, f2 = 2.0f;
+        System.out.println("ex 2:");
         System.out.printf("Sum: %.2f, Diff: %.2f, Prod: %.2f, Quot: %.2f\n",
                 f1 + f2, f1 - f2, f1 * f2, f1 / f2);
 
         // 3. Largest of three
+        System.out.println("ex 3:");
         System.out.println("Largest: " + largestOfThree(5, 9, 3));
 
         // 4. Quadratic roots
+        System.out.println("ex 4:");
         quadraticRoots(1, -3, 2);
 
         // 5. Prime check
+        System.out.println("ex 5:");
         System.out.println("Is prime: " + isPrime(13));
 
         // 6. Rectangle perimeter
+        System.out.println("ex 6:");
         System.out.println("Perimeter: " + perimeterRectangle(5, 3));
 
         // 7. Odd check
+        System.out.println("ex 7:");
         System.out.println("Is odd (1=odd): " + isOdd(7));
 
         // 8. Triangle area
+        System.out.println("ex 8:");
         System.out.println("Area: " + triangleArea(3, 4, 5));
 
         // 9. String concatenation
+        System.out.println("ex 9:");
         concatStrings("One", "Two", "Three");
 
         // 10. Word count
+        System.out.println("ex 10:");
         countWords("Java is fun and powerful");
 
         // 11. Substring extraction
+        System.out.println("ex 11:");
         substringFrom("Programming", 3);
 
         // 12. Palindrome check
+        System.out.println("ex 12:");
         System.out.println("Is palindrome: " + isPalindrome("A man a plan a canal Panama"));
 
         // 13. Char count
+        System.out.println("ex 13:");
         System.out.println("Occurrences: " + countChar("banana", 'a'));
 
         // 14. Vowel count
+        System.out.println("ex 14:");
         System.out.println("Vowel count: " + countVowels("Hello World"));
 
         // 15. First occurrence index
+        System.out.println("ex 15:");
         findFirstIndex("Hello", 'e');
 
         // 16. Factorial
+        System.out.println("ex 16:");
         System.out.println("Factorial: " + factorial(5));
 
         // 17. Fibonacci
+        System.out.println("ex 17:");
         fibonacci(10);
 
         // 18. GCD
+        System.out.println("ex 18:");
         System.out.println("GCD: " + gcd(20, 8));
 
         // 19. Multiplication table
+        System.out.println("ex 19:");
         multiplicationTable(5);
 
         // 20. Numeric pattern
+        System.out.println("ex 20:");
         numberPattern(5);
 
         // 21. N-th prime
+        System.out.println("ex 21:");
         System.out.println("Nth prime: " + nthPrime(10));
 
         // 22. Max subarray sum
+        System.out.println("ex 22:");
         System.out.println("Max subarray sum: " + maxSubarraySum(new int[]{-2,1,-3,4,-1,2,1,-5,4}));
 
         // 23. Rotate array
+        System.out.println("ex 23:");
         int[] arr = {1, 2, 3, 4, 5};
         rotateArray(arr, 2);
         for (int num : arr) System.out.print(num + " ");
         System.out.println();
 
         // 24. Balanced brackets
+        System.out.println("ex 24:");
         System.out.println("Balanced: " + isBalanced("{[()]}"));
     }
 
@@ -126,6 +151,10 @@ public class m1 {
     }
 
     static void countWords(String sentence) {
+        String[] words2 = sentence.split(" ");
+        System.out.println("Word count: " + words2.length);
+    }
+    static void countWords2(String sentence) {
         String[] words = sentence.trim().split("\\s+");
         System.out.println("Word count: " + words.length);
     }
