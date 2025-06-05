@@ -650,11 +650,13 @@ interface DeviceBridge {
 class TV implements DeviceBridge {
     public void turnOn() { System.out.println("TV On"); }
     public void turnOff() { System.out.println("TV Off"); }
+    public void setVolume(int level) { System.out.println("TV Volume: " + level); }
 }
 
 class Radio implements DeviceBridge {
     public void turnOn() { System.out.println("Radio On"); }
     public void turnOff() { System.out.println("Radio Off"); }
+    public void setFrequency(double freq) { System.out.println("Radio Frequency: " + freq); }
 }
 
 abstract class RemoteControl {
@@ -684,5 +686,17 @@ class AdvancedRemote extends RemoteControl {
 
     void powerOff() {
         device.turnOff();
+    }
+
+    void volumeControl(int level) {
+        if (device instanceof TV) {
+            ((TV)device).setVolume(level);
+        }
+    }
+
+    void tuneRadio(double frequency) {
+        if (device instanceof Radio) {
+            ((Radio)device).setFrequency(frequency);
+        }
     }
 }
