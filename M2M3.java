@@ -65,7 +65,7 @@ public class M2M3 {
         Bicycle bi = new Bicycle();
         cv.startEngine(); cv.move();
         tr.startEngine(); tr.loadCargo(); tr.move();
-        bi.startEngine(); bi.move();
+        bi.move();
 
         // 36-37. Wildlife conservation
         Animal[] animals = { new Lion(), new Penguin(), new Fish(), new Eagle() };
@@ -96,7 +96,7 @@ public class M2M3 {
         System.out.println("Built Car: " + myCar);
 
         // 41. Document Factory
-        Document doc = DocumentFactory.getDocument("pdf");
+        Document doc = DocumentFactory.createDocument("pdf");
         doc.generate();
 
         // 42. Proxy Image
@@ -119,7 +119,6 @@ public class M2M3 {
         advanced.powerOff();
     }
 }
-
 
 // 25. Class Car
 class Car {
@@ -294,8 +293,6 @@ class VideoGame implements Playable {
     }
 }
 
-
-
 // 34. Chargeable Interface and Device Hierarchy
 interface Chargeable {
     void charge();
@@ -338,11 +335,15 @@ interface Loadable {
     void loadCargo();
 }
 
-abstract class AbstractVehicle {
-    abstract void startEngine();
+interface EnginePowered {
+    void startEngine();
 }
 
-class CarVehicle extends AbstractVehicle implements Movable {
+abstract class AbstractVehicle {
+    // common properties or methods (if any)
+}
+
+class CarVehicle extends AbstractVehicle implements Movable, EnginePowered {
     public void startEngine() {
         System.out.println("Car engine started.");
     }
@@ -351,7 +352,7 @@ class CarVehicle extends AbstractVehicle implements Movable {
     }
 }
 
-class Truck extends AbstractVehicle implements Loadable, Movable {
+class Truck extends AbstractVehicle implements Loadable, Movable, EnginePowered {
     public void startEngine() {
         System.out.println("Truck engine started.");
     }
@@ -364,9 +365,6 @@ class Truck extends AbstractVehicle implements Loadable, Movable {
 }
 
 class Bicycle extends AbstractVehicle implements Movable {
-    public void startEngine() {
-        System.out.println("Bicycle doesn't need engine.");
-    }
     public void move() {
         System.out.println("Bicycle is moving.");
     }
@@ -523,16 +521,16 @@ class Cart {
 
 // 40. Builder Pattern for Car
 class CarBuilder {
-    private String brand, model, engine;
+    private String brand, model;
     private List<String> features = new ArrayList<>();
 
     public CarBuilder setBrand(String brand) { this.brand = brand; return this; }
     public CarBuilder setModel(String model) { this.model = model; return this; }
-    public CarBuilder setEngine(String engine) { this.engine = engine; return this; }
+    public CarBuilder setEngine(String engine) { return this; }
     public CarBuilder addFeature(String feature) { features.add(feature); return this; }
 
     public Car build() {
-        Car car = new Car(brand, model, LocalDate.now().getYear());
+        Car car = new Car(brand, model);
         return car;
     }
 }
@@ -555,7 +553,7 @@ class TextDocument extends Document {
 }
 
 class DocumentFactory {
-    public static Document getDocument(String type) {
+    public static Document createDocument(String type) {
         return switch (type.toLowerCase()) {
             case "pdf" -> new PDFDocument();
             case "word" -> new WordDocument();
@@ -603,10 +601,22 @@ class ProxyImage implements Image {
 }
 
 // 43. Home Theater Facade
-class DVDPlayer { void on() { System.out.println("DVD Player On"); } void off() { System.out.println("DVD Player Off"); }}
-class Projector { void on() { System.out.println("Projector On"); } void off() { System.out.println("Projector Off"); }}
-class SoundSystem { void on() { System.out.println("Sound System On"); } void off() { System.out.println("Sound System Off"); }}
-class Lights { void dim() { System.out.println("Lights Dimmed"); } void on() { System.out.println("Lights On"); }}
+class DVDPlayer { 
+    void on() { System.out.println("DVD Player On"); } 
+    void off() { System.out.println("DVD Player Off"); }
+}
+class Projector { 
+    void on() { System.out.println("Projector On"); } 
+    void off() { System.out.println("Projector Off"); }
+}
+class SoundSystem { 
+    void on() { System.out.println("Sound System On"); } 
+    void off() { System.out.println("Sound System Off"); }
+}
+class Lights { 
+    void dim() { System.out.println("Lights Dimmed"); } 
+    void on() { System.out.println("Lights On"); }
+}
 
 class HomeTheaterFacade {
     DVDPlayer dvd = new DVDPlayer();
@@ -669,7 +679,6 @@ class AdvancedRemote extends RemoteControl {
     public AdvancedRemote(DeviceBridge device) { super(device); }
 
     void powerOn() {
-        System.out.println("Advanced functions...");
         device.turnOn();
     }
 
