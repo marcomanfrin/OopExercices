@@ -36,7 +36,6 @@ Questi esercizi supportano l'apprendimento e la preparazione all'esame finale. A
 22. Metodo che trova la somma massima di una sottosequenza contigua in un array.
 23. Metodo che ruota un array verso destra di `k` posizioni.
 24. Metodo che controlla se una stringa di parentesi `()[]{}` è bilanciata.
-
 ## M2 & M3
 25. **Classe `Car`**
     - Attributi: `brand`, `model`, `year`
@@ -121,7 +120,6 @@ Questi esercizi supportano l'apprendimento e la preparazione all'esame finale. A
     - `RemoteControl` (astrazione): `powerOn()`, `powerOff()`
     - `Device` (interfaccia): `TV`, `Radio`
     - `BasicRemote`, `AdvancedRemote` indipendenti dal tipo dispositivo
-
 ## M4
 46. **Gestione divisione e input**
     - Metodo che legge un intero dall’utente e divide 100 per quel numero

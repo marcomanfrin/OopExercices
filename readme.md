@@ -42,86 +42,86 @@ These exercises support learning and final exam preparation. Some are designed t
 ## M2 & M3
 ### Classes, inheritance, interfaces, pattern
 
-1. **Class `Car`**
+25. **Class `Car`**
     - Attributes: `brand`, `model`, `year`
     - Two constructors:
         - One that accepts `brand` and `model`, sets `year` to current
         - One that initializes all attributes
     - Method `toString()`
     - Instantiate two objects and print their details
-2. **Class `BankAccount`**
+26. **Class `BankAccount`**
     - Private attribute `balance`
     - Methods: `deposit()`, `withdraw()`, `checkBalance()`
     - Prevent withdrawals exceeding the balance
-3. **Class `MathOperations`**
+27. **Class `MathOperations`**
     - Two overloaded `sum()` methods: one for `int`, one for `double`
-4. **Class `Counter`**
+28. **Class `Counter`**
     - Static variable `count`
     - Incremented on each instantiation
     - Method to retrieve `count`
-5. **Class `Circle`**
+29. **Class `Circle`**
     - Attribute `radius`
     - Methods: `calculateArea()`, `calculatePerimeter()`
-6. **Class `Student`**
+30. **Class `Student`**
     - Student info and array of grades
     - Method to compute average and check pass (`≥ 50`)
-7. **Class `Person` and subclass `Student`**
+31. **Class `Person` and subclass `Student`**
     - `Person`: `name`, `age`
     - `Student`: `studentId`, method to print all details
-8. **Abstract class `Shape`**
+32. **Abstract class `Shape`**
     - Abstract method `calculateArea()`
     - Subclasses: `Rectangle`, `Circle` with area implementation
-9. **Interface `Playable`**
+33. **Interface `Playable`**
     - Method `play()`
     - Classes `Guitar` and `VideoGame` implement `Playable`
-10. **Interface and device hierarchy**
+34. **Interface and device hierarchy**
     - `Chargeable` with `charge()`
     - Abstract `Device` with `connectToWifi()`
     - `Smartphone` and `Laptop`: extend `Device`, implement `Chargeable`
     - `ElectricCar`: only implements `Chargeable`
     - Create an array of `Chargeable`, call `charge()`
-11. **Vehicle structure**
+35. **Vehicle structure**
     - Appropriate interface and abstract class
     - Common method `startEngine()`
     - Only some: `loadCargo()`, others `move()`
     - Implement `Car`, `Truck`, `Bicycle`
-12. **Wildlife conservation**
+36. **Wildlife conservation**
     - Abstract class `Animal`: `eat()`, `sleep()`
     - Interfaces: `Flyable`, `Swimmable`
     - Classes: `Lion`, `Penguin`, `Fish`, `Eagle`, etc.
-13. **Class `WildlifeConservationSystem`**
+37. **Class `WildlifeConservationSystem`**
     - Array of `Animal`
     - Static method `printAnimalDetails(Animal animal)`
     - Overloaded methods `performAction(Flyable)` and `performAction(Swimmable)`
-14. **SIM Card system**
+38. **SIM Card system**
     - Class `Call`: duration and called number
     - Class `SIM`: number, credit, last 5 calls (fixed array)
     - Add at least 6 calls, print details
-15. **E-commerce system**
+39. **E-commerce system**
     - `Product`: code, description, price, quantity
     - `Customer`: ID, name, email, registration date
     - `Cart`: associated customer, list of products, total cost
     - Methods: add/remove, stock check, print details
-16. **Builder Pattern for `Car`**
+40. **Builder Pattern for `Car`**
     - `Car`: `brand`, `model`, `engine`, `features`
     - `CarBuilder` class: chained methods
     - Use builder to create different configurations
-17. **Factory Pattern for documents**
+41. **Factory Pattern for documents**
     - Abstract class `Document`: method `generate()`
     - Subclasses: `PDFDocument`, `WordDocument`, `TextDocument`
     - `DocumentFactory` returns correct instance by type
-18. **Proxy Pattern for images**
+42. **Proxy Pattern for images**
     - Interface `Image` with `display()`
     - `RealImage`: loads and shows
     - `ProxyImage`: loads only on first `display()`
-19. **Home Theater Facade**
+43. **Home Theater Facade**
     - Components: `DVDPlayer`, `Projector`, `SoundSystem`, `Lights`
     - `HomeTheaterFacade`: methods `startMovie()`, `endMovie()`
-20. **Device/Remote hierarchy**
+44. **Device/Remote hierarchy**
     - Devices: `TV`, `Radio`
     - Remotes: `BasicRemote`, `AdvancedRemote`
     - Tightly coupled: e.g., `TVBasicRemote`, `TVAdvancedRemote`
-21. **Bridge Pattern for remotes and devices**
+45. **Bridge Pattern for remotes and devices**
     - `RemoteControl` (abstraction): `powerOn()`, `powerOff()`
     - `Device` (interface): `TV`, `Radio`
     - `BasicRemote`, `AdvancedRemote` independent of device type
@@ -129,41 +129,41 @@ These exercises support learning and final exam preparation. Some are designed t
 ## M4
 ### Exceptions, logging, chain of responsibility
 
-1. **Division and input handling**
+46. **Division and input handling**
     - Method that reads an integer and divides 100 by it
     - Handles `ArithmeticException` and `InputMismatchException` with friendly messages
-2. **Square root and logging**
+47. **Square root and logging**
     - Calculates square root of a number
     - Uses `Logger` to log input, result, invalid inputs (e.g., negative numbers)
     - Configure logger to write to file
-3. **Safe number parsing**
+48. **Safe number parsing**
     - Method takes a list of strings and tries converting to numbers
     - Skips and logs unparseable ones
-4. **Login system with attempts**
+49. **Login system with attempts**
     - Simulate login
     - If username/password incorrect, throw custom exception
     - Block after 3 failed attempts
-5. **Exception propagation**
+50. **Exception propagation**
     - Three methods: `readFile()`, `processData()`, `main()`
     - `readFile()` throws `IOException`
     - Don’t catch until `main()` to show propagation
-6. **Custom Exception Wrapper**
+51. **Custom Exception Wrapper**
     - Library method calls third-party code that may throw unchecked exceptions
     - Internally catches and rethrows as custom `LibraryException`
-7. **Chain of Responsibility Logger**
+52. **Chain of Responsibility Logger**
     - Loggers: `ConsoleLogger`, `FileLogger`, `EmailLogger`
     - Each handles one log level (INFO, WARNING, ERROR)
     - Passes to next logger if level unhandled
-8. **Enum and loggers**
+53. **Enum and loggers**
     - Define `enum LogLevel { INFO, WARNING, ERROR }`
     - Abstract class `Logger` with:
         - `setNext(Logger)`
         - `log(LogLevel, String message)`
-9. **Concrete logger implementations**
+54. **Concrete logger implementations**
     - `ConsoleLogger`: prints to console if `INFO`
     - `FileLogger`: simulates writing to file for `WARNING`
     - `EmailLogger`: simulates email for `ERROR`
-10. **Generic catch and safety**
+55. **Generic catch and safety**
     - Class that catches all exceptions with `catch(Exception e)`
     - Logs messages
     - Explain why it’s bad practice (e.g., Log4Shell), and risks of logging untrusted input
@@ -171,11 +171,11 @@ These exercises support learning and final exam preparation. Some are designed t
 ## M5
 ### Collections, Stream API, Lambda
 
-1. **Player list**
+56. **Player list**
     - Store player names in a `List`
     - Show difference between `ArrayList` and `LinkedList`
     - Explain performance impact for insertions/removals
-2. **Generic class `Box<T>`**
+57. **Generic class `Box<T>`**
     - Methods: `getContent()`, `setContent()`
     - Test with `Integer`, `String`, and a custom `Player` class
 3. **Multiplayer lobby**
