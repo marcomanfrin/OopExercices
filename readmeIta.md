@@ -159,7 +159,6 @@ Questi esercizi supportano l'apprendimento e la preparazione all'esame finale. A
     - Classe che cattura tutte le eccezioni con `catch(Exception e)`
     - Logga i messaggi
     - Spiega perché è cattiva pratica (es. Log4Shell) e i rischi di loggare input non fidati
-
 ## M5
 56. **Liste di giocatori**
     - Memorizza nomi dei giocatori in una `List`
