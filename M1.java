@@ -269,7 +269,7 @@ public class M1 {
             if ("({[".indexOf(c) != -1) stack.push(c);
             else if ("])}".indexOf(c) != -1) {
                 if (stack.isEmpty()) return false;
-                char top = stack.pop().charValue();
+                char top = stack.pop();
                 if ((c == ')' && top != '(') ||
                     (c == ']' && top != '[') ||
                     (c == '}' && top != '{')) return false;

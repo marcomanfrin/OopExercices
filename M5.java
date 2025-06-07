@@ -53,12 +53,12 @@ public class M5 {
             System.out.println("Evento recente: " + e);
 
         // 61 - Comparable vs Comparator
-        List<Character> chars = List.of(
-                new Character("A", 5, 100),
-                new Character("B", 2, 200),
-                new Character("C", 5, 50));
+        List<CCharacter> chars = List.of(
+                new CCharacter("A", 5, 100),
+                new CCharacter("B", 2, 200),
+                new CCharacter("C", 5, 50));
         chars.stream().sorted().forEach(System.out::println); // by level
-        chars.stream().sorted(Comparator.comparingInt((Character c) -> c.xp).reversed()).forEach(System.out::println);
+        chars.stream().sorted(Comparator.comparingInt((CCharacter c) -> c.xp).reversed()).forEach(System.out::println);
         chars.stream().sorted(Comparator.comparing(c -> c.name)).forEach(System.out::println);
 
         // 62 - Operazioni su Item
@@ -247,19 +247,19 @@ class GameEventLog implements Iterable<String> {
  * vogliono più modalità di confronto, si lavora con classi di terze parti o si
  * desiderano logiche temporanee senza modificare il modello di dominio.
  */
-class Character implements Comparable<Character> {
+class CCharacter implements Comparable<CCharacter> {
     String name;
     int level;
     int xp;
 
-    Character(String n, int l, int x) {
+    CCharacter(String n, int l, int x) {
         name = n;
         level = l;
         xp = x;
     }
 
     @Override
-    public int compareTo(Character o) {
+    public int compareTo(CCharacter o) {
         return Integer.compare(this.level, o.level);
     }
 
