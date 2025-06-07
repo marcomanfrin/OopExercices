@@ -4,12 +4,20 @@ These exercises support learning and final exam preparation. Some are designed t
 
 ## 📚 Module Index
 
-- [M1 - Basic exercises](#m1)
-- [M2 & M3 - Classes, inheritance, interfaces, patterns](#m2--m3)
-- [M4 - Exceptions, logging, chain of responsibility](#m4)
-- [M5 - Collections, Stream API, Lambda](#m5)
-- [M6 - File I/O, serialization, Memento](#m6)
-- [M7 - Threading, Executor, Deadlock, Observer](#m7)
+- [Object Oriented Programming - Practice](#object-oriented-programming---practice)
+  - [📚 Module Index](#-module-index)
+  - [M1](#m1)
+    - [Basic exercises](#basic-exercises)
+  - [M2 \& M3](#m2--m3)
+    - [Classes, inheritance, interfaces, pattern](#classes-inheritance-interfaces-pattern)
+  - [M4](#m4)
+    - [Exceptions, logging, chain of responsibility](#exceptions-logging-chain-of-responsibility)
+  - [M5](#m5)
+    - [Collections, Stream API, Lambda](#collections-stream-api-lambda)
+  - [M6](#m6)
+    - [File I/O, serialization, Memento](#file-io-serialization-memento)
+  - [M7](#m7)
+    - [Threading, Executor, Deadlock, Observer](#threading-executor-deadlock-observer)
 
 ## M1
 ### Basic exercises
@@ -178,54 +186,54 @@ These exercises support learning and final exam preparation. Some are designed t
 57. **Generic class `Box<T>`**
     - Methods: `getContent()`, `setContent()`
     - Test with `Integer`, `String`, and a custom `Player` class
-3. **Multiplayer lobby**
+58. **Multiplayer lobby**
     - Use `List<Player>` for game room
     - Use `Queue<Player>` for matchmaking queue
     - Implement: join/leave room, generate sessions
     - Explain why `Queue` is better for matchmaking
-4. **Achievement tracking**
+59. **Achievement tracking**
     - `Set<String>` for unique achievements
     - `Map<String, Integer>` for stats like "monsters defeated"
     - Add methods to update stats and unlock achievements
     - Extend to multiple players using `Map<Player, PlayerData>`
-5. **GameEventLog and Iterator Pattern**
+60. **GameEventLog and Iterator Pattern**
     - Custom collection with game events and timestamps
     - Inner class `RecentEventIterator` returns only events from last 5 minutes
     - Explain `Iterator Pattern` benefits and reuse for other filters
-6. **Class `Character` with ordering**
+61. **Class `Character` with ordering**
     - Attributes: `name`, `level`, `XP`
     - Implements `Comparable<Character>` for natural ordering by `level`
     - Create two `Comparator`s: one for descending `XP`, one for alphabetical `name`
     - Compare `Comparable` vs `Comparator` and when to use each
-7. **List of `Item` objects**
+62. **List of `Item` objects**
     - Each `Item` has `name` and `price`
     - Print using `forEach()` and lambda
     - Use `removeIf()` to remove items below a threshold
     - Compute average price with `Stream`
     - Compare with traditional `for-loop` version
-8. **Stream on `Transaction`**
+63. **Stream on `Transaction`**
     - Filter transactions above a threshold
     - Group by user and compute total spend
     - Find top 3 spenders
     - Sort by date
     - Explain data transformations with Stream vs loops
-9. **Stream on `Product`**
+64. **Stream on `Product`**
     - Group products by `category`
     - Find the best-selling product for each category
     - Output: `Map<String, Product>`, key is `category`
-10. **Even numbers transformation (two versions)**
+65. **Even numbers transformation (two versions)**
     - List of integers
     - Filter evens
     - Multiply ×3
     - Collect in new list
     - Write in both `for-loop` and `Stream` form
     - Compare clarity and readability
-11. **Books in filtered map**
+66. **Books in filtered map**
     - List of `Book(title, author, yearPublished, price)`
     - Filter books after 2010
     - Collect in `Map<String, Double>` with `title` as key
     - Handle duplicate titles: keep the most expensive
-12. **Optional and Stream**
+67. **Optional and Stream**
     - List of `Order`, each has `Optional<Customer>`, and `Customer` has `Optional<String> email`
     - Extract only present emails
     - Collect into `List<String>`
