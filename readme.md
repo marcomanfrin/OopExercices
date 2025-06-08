@@ -241,55 +241,55 @@ These exercises support learning and final exam preparation. Some are designed t
 ## M6
 ### File I/O, serialization, Memento
 
-1. **Read `.txt` file**
+68. **Read `.txt` file**
     - Use `BufferedReader` to read and print each line
     - Handle exceptions and close resources properly
-2. **Write file with messages**
+69. **Write file with messages**
     - Method receives a list of `String`
     - Writes each line using `BufferedWriter` in append mode
-3. **Word count from file**
+70. **Word count from file**
     - Read a `.txt` file
     - Count how often each word appears (ignore case and punctuation)
     - Save in `Map<String, Integer>`
-4. **Copy binary files**
+71. **Copy binary files**
     - Copy `.jpg` or similar with `FileInputStream` and `FileOutputStream`
     - Use buffer for performance
-5. **Write and read binary data**
+72. **Write and read binary data**
     - Use `DataOutputStream` to write `int`, `double`, `String`
     - Read with `DataInputStream` and print values
-6. **Object serialization**
+73. **Object serialization**
     - `User(name, email, age)` implements `Serializable`
     - Write an object to file and read to verify integrity
-7. **Serialization of object list**
+74. **Serialization of object list**
     - Serialize a list of `Book` objects to file
     - Deserialize and print contents
-8. **Handling `serialVersionUID`**
+75. **Handling `serialVersionUID`**
     - Add a new field to `User`
     - Define `serialVersionUID`
     - Verify compatibility with an older version
-9. **Print `.txt` files in directory**
+76. **Print `.txt` files in directory**
     - Use `Files.list()` and `Stream` to print all `.txt` files in a directory
     - Sort alphabetically
-10. **Read file with `FileChannel`**
+77. **Read file with `FileChannel`**
     - Use `FileChannel` and `ByteBuffer` to read file to memory and print it
     - Avoid legacy streams
-11. **Filter lines with Stream**
+78. **Filter lines with Stream**
     - Use `Files.lines()`:
         - Filter lines with a keyword
         - Convert to uppercase
         - Save in new file
-12. **User input with validation**
+79. **User input with validation**
     - Takes user input and writes to file
     - Verifies:
         - No forbidden words
         - Cleans extra spaces
         - Is valid, else prints error
-13. **Text editor with undo (Memento Pattern)**
+80. **Text editor with undo (Memento Pattern)**
     - `EditorState`: represents current content (memento)
     - `TextEditor`: modifies and saves/restores state (originator)
     - `History`: manages previous versions using a stack (caretaker)
     - Implement `undo()` to return to previous state
-14. **CLI for log filtering**
+81. **CLI for log filtering**
     - App loads a large log file
     - Allows filters for:
         - Date range
