@@ -300,45 +300,45 @@ These exercises support learning and final exam preparation. Some are designed t
 ## M7
 ### Threading, Executor, Deadlock, Observer
 
-1. **Thread with `NumberPrinter`**
+82. **Thread with `NumberPrinter`**
     - Class `NumberPrinter` extends `Thread`
     - Each thread prints from 1 to 10 with 500ms delay
     - Start two instances and observe parallel execution
     - Explain difference between calling `run()` vs `start()`
-2. **Simulated file download**
+83. **Simulated file download**
     - Class `FileDownloader` implements `Runnable`
     - Simulates download by printing progress and sleeping
     - Start multiple threads with different filenames
-3. **Execution with `ExecutorService`**
+84. **Execution with `ExecutorService`**
     - Create 5 `Callable` or `Runnable`
     - Use with fixed thread pool of 2 threads
     - Print which thread runs each task
     - Shutdown executor properly
-4. **Synchronized counter**
+85. **Synchronized counter**
     - Class `Counter` with `increment()` method
     - 100 threads call it 1000 times
     - Use `synchronized` to ensure correctness
     - Compare result without `synchronized`
-5. **Producer-Consumer**
+86. **Producer-Consumer**
     - Producer adds objects every second
     - Consumer removes if present
     - Use `wait()` and `notify()` for synchronization
     - Log interactions
-6. **Deadlock simulation**
+87. **Deadlock simulation**
     - Two resources: `Printer` and `Scanner`
     - Two threads lock resources in opposite order
     - Show how deadlock occurs
     - Prevent with timeout or lock ordering
-7. **Observer pattern with stock actions**
+88. **Observer pattern with stock actions**
     - `Stock` is the observed subject
     - Observers: `EmailAlert`, `MobileApp`
     - Notify all observers on price change
     - Demonstrate registration, deregistration, and notification
-8. **Singleton `AppConfig`**
+89. **Singleton `AppConfig`**
     - Thread-safe Singleton class that loads settings
     - Use lazy initialization with: `synchronized`, static holder, or `volatile`
     - Verify behavior from multiple threads
-9. **Chatroom with Observer**
+90. **Chatroom with Observer**
     - `ChatRoom`: subject managing subscribed users
     - Method `postMessage(String)` notifies all
     - Users (`User`) implement `receive(String message)`
