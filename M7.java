@@ -2,12 +2,134 @@
 import java.util.*;
 import java.util.concurrent.*;
 
+// MAIN
+public class M7 {
+    public static void main(String[] args) {
+        // 82
+        NumberPrinter np1 = new NumberPrinter();
+        NumberPrinter np2 = new NumberPrinter();
+        np1.start();
+        np2.start();
+        /*
+         * In una classe che estende Thread, il metodo run() contiene la logica che vuoi
+         * eseguire, ma chiamarlo direttamente (es. thread.run()) lo esegue come un
+         * normale metodo sul thread corrente, senza creare concorrenza; invece,
+         * invocando thread.start(), la JVM crea realmente un nuovo thread a livello di
+         * sistema, lo marca come “runnable” e poi chiama internamente run() su quella
+         * nuova linea di esecuzione, consentendoti di eseguire il codice in parallelo.
+         */
+        try {
+            np1.join();
+            np2.join();
+        } catch (InterruptedException ignored) {
+        }
+
+        // 83
+        Thread d1 = new Thread(new FileDownloader("file1.zip"));
+        Thread d2 = new Thread(new FileDownloader("file2.zip"));
+        d1.start();
+        d2.start();
+        try {
+            d1.join();
+            d2.join();
+        } catch (InterruptedException ignored) {
+        }
+
+        // 84
+        // TODO: review syntax
+        ExecutorService service = Executors.newFixedThreadPool(2);
+        for (int i = 1; i <= 5; i++) {
+            service.submit(new SimpleTask(i));
+        }
+        service.shutdown();
+
+        // 85
+        SharedCounter counter = new SharedCounter();
+        Runnable task = () -> {
+            for (int i = 0; i < 1000; i++)
+                counter.increment();
+        };
+        Thread[] threads = new Thread[100];
+        for (int i = 0; i < 100; i++)
+            threads[i] = new Thread(task);
+        for (Thread t : threads)
+            t.start();
+        for (Thread t : threads)
+            try {
+                t.join();
+            } catch (InterruptedException ignored) {
+            }
+        System.out.println("Final count (synchronized): " + counter.getCount());
+
+        // 86
+        Store store = new Store();
+        Thread producer = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 5; i++) {
+                    store.produce(i);
+                    Thread.sleep(1000);
+                }
+            } catch (InterruptedException ignored) {
+            }
+        });
+
+        Thread consumer = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 5; i++) {
+                    store.consume();
+                    Thread.sleep(1200);
+                }
+            } catch (InterruptedException ignored) {
+            }
+        });
+        producer.start();
+        consumer.start();
+        try {
+            producer.join();
+            consumer.join();
+        } catch (InterruptedException ignored) {
+        }
+
+        // 87
+        DeadlockSimulator.simulate();
+
+        // 88
+        Stock s = new Stock("GOOG");
+        EmailAlert e = new EmailAlert();
+        MobileApp m = new MobileApp();
+        s.addObserver(e);
+        s.addObserver(m);
+        s.setPrice(1450);
+        s.removeObserver(e);
+        s.setPrice(1480);
+
+        // 89
+        AppConfig config = AppConfig.getInstance();
+        System.out.println("AppConfig: " + config.getSetting());
+
+        // 90
+        ChatRoom room = new ChatRoom();
+        User u1 = new User("UserA");
+        User u2 = new User("UserB");
+        User u3 = new User("UserC");
+        room.register(u1);
+        room.register(u2);
+        room.register(u3);
+        room.postMessage("Welcome");
+        room.unregister(u2);
+        room.postMessage("UserB has left");
+    }
+}
+
 // 82. NumberPrinter Thread
 class NumberPrinter extends Thread {
     public void run() {
         for (int i = 1; i <= 10; i++) {
             System.out.println(getName() + ": " + i);
-            try { Thread.sleep(500); } catch (InterruptedException ignored) {}
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException ignored) {
+            }
         }
     }
 }
@@ -23,7 +145,10 @@ class FileDownloader implements Runnable {
     public void run() {
         for (int i = 0; i <= 100; i += 20) {
             System.out.println("Downloading " + fileName + ": " + i + "%");
-            try { Thread.sleep(300); } catch (InterruptedException ignored) {}
+            try {
+                Thread.sleep(300);
+            } catch (InterruptedException ignored) {
+            }
         }
     }
 }
@@ -77,8 +202,11 @@ class Store {
 }
 
 // 87. Deadlock simulation
-class MyPrinter {}
-class MyScanner {}
+class MyPrinter {
+}
+
+class MyScanner {
+}
 
 class DeadlockSimulator {
     public static void simulate() {
@@ -88,7 +216,10 @@ class DeadlockSimulator {
         Thread t1 = new Thread(() -> {
             synchronized (printer) {
                 System.out.println("Thread1 locked printer");
-                try { Thread.sleep(100); } catch (InterruptedException ignored) {}
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ignored) {
+                }
                 synchronized (scanner) {
                     System.out.println("Thread1 locked scanner");
                 }
@@ -98,7 +229,10 @@ class DeadlockSimulator {
         Thread t2 = new Thread(() -> {
             synchronized (scanner) {
                 System.out.println("Thread2 locked scanner");
-                try { Thread.sleep(100); } catch (InterruptedException ignored) {}
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException ignored) {
+                }
                 synchronized (printer) {
                     System.out.println("Thread2 locked printer");
                 }
@@ -120,7 +254,9 @@ class Stock {
     private String name;
     private double price;
 
-    public Stock(String name) { this.name = name; }
+    public Stock(String name) {
+        this.name = name;
+    }
 
     public void addObserver(StockObserver obs) {
         observers.add(obs);
@@ -152,7 +288,9 @@ class MobileApp implements StockObserver {
 // 89. Singleton AppConfig
 class AppConfig {
     private static volatile AppConfig instance;
-    private AppConfig() {}
+
+    private AppConfig() {
+    }
 
     public static AppConfig getInstance() {
         if (instance == null) {
@@ -194,93 +332,11 @@ class ChatRoom {
 class User implements ChatUser {
     private final String name;
 
-    public User(String name) { this.name = name; }
+    public User(String name) {
+        this.name = name;
+    }
 
     public void receive(String message) {
         System.out.println(name + " received: " + message);
-    }
-}
-
-// MAIN
-public class M7 {
-    public static void main(String[] args) {
-        // 82
-        NumberPrinter np1 = new NumberPrinter();
-        NumberPrinter np2 = new NumberPrinter();
-        np1.start(); np2.start();
-        try { np1.join(); np2.join(); } catch (InterruptedException ignored) {}
-
-        // 83
-        Thread d1 = new Thread(new FileDownloader("file1.zip"));
-        Thread d2 = new Thread(new FileDownloader("file2.zip"));
-        d1.start(); d2.start();
-        try { d1.join(); d2.join(); } catch (InterruptedException ignored) {}
-
-        // 84
-        ExecutorService service = Executors.newFixedThreadPool(2);
-        for (int i = 1; i <= 5; i++) {
-            service.submit(new SimpleTask(i));
-        }
-        service.shutdown();
-
-        // 85
-        SharedCounter counter = new SharedCounter();
-        Runnable task = () -> {
-            for (int i = 0; i < 1000; i++) counter.increment();
-        };
-        Thread[] threads = new Thread[100];
-        for (int i = 0; i < 100; i++) threads[i] = new Thread(task);
-        for (Thread t : threads) t.start();
-        for (Thread t : threads)
-            try { t.join(); } catch (InterruptedException ignored) {}
-        System.out.println("Final count (synchronized): " + counter.getCount());
-
-        // 86
-        Store store = new Store();
-        Thread producer = new Thread(() -> {
-            try {
-                for (int i = 1; i <= 5; i++) {
-                    store.produce(i);
-                    Thread.sleep(1000);
-                }
-            } catch (InterruptedException ignored) {}
-        });
-
-        Thread consumer = new Thread(() -> {
-            try {
-                for (int i = 1; i <= 5; i++) {
-                    store.consume();
-                    Thread.sleep(1200);
-                }
-            } catch (InterruptedException ignored) {}
-        });
-        producer.start(); consumer.start();
-        try { producer.join(); consumer.join(); } catch (InterruptedException ignored) {}
-
-        // 87
-        DeadlockSimulator.simulate();
-
-        // 88
-        Stock s = new Stock("GOOG");
-        EmailAlert e = new EmailAlert();
-        MobileApp m = new MobileApp();
-        s.addObserver(e); s.addObserver(m);
-        s.setPrice(1450);
-        s.removeObserver(e);
-        s.setPrice(1480);
-
-        // 89
-        AppConfig config = AppConfig.getInstance();
-        System.out.println("AppConfig: " + config.getSetting());
-
-        // 90
-        ChatRoom room = new ChatRoom();
-        User u1 = new User("UserA");
-        User u2 = new User("UserB");
-        User u3 = new User("UserC");
-        room.register(u1); room.register(u2); room.register(u3);
-        room.postMessage("Welcome");
-        room.unregister(u2);
-        room.postMessage("UserB has left");
     }
 }
